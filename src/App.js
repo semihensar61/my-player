@@ -6,7 +6,7 @@ function App() {
   AppStore.setCurrentSong();
   return (
     <div className="">
-      <div className='lg:mt-[8rem]'>
+      <div className='mt-[18rem] lg:mt-[8rem]'>
         <TrackCard />
       </div>
       <div className='lg:mt-[6rem]'>
