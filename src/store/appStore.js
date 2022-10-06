@@ -1,6 +1,5 @@
 
 import { action, observable, makeObservable, toJS } from 'mobx';
-import { v4 as uuidv4 } from 'uuid';
 
 class UserStore {
   currentSong = {};
@@ -13,12 +12,29 @@ class UserStore {
   }
 
 
-  setCurrentSong = (song) => {
+  setCurrentSong = (song, shuffle) => {
     if(!song) {
         this.currentSong = this.chillHop()[0]
+    } else if (shuffle){
+        this.currentSong = this.chillHop()[Math.floor(Math.random() * this.chillHop().length-1)]
     } else {
-        this.currentSong = song;
+        if(song === "next") {
+            const index = this.chillHop().findIndex((song) => song.id === this.currentSong.id)
+            if(index === this.chillHop().length-1) {
+                this.currentSong = this.chillHop()[0]
+            } else {
+                this.currentSong = this.chillHop()[index+1]
+            }
+        } else {
+            const index = this.chillHop().findIndex((song) => song.id === this.currentSong.id)
+            if(index === 0) {
+                 this.currentSong = this.chillHop()[this.chillHop().length-1]
+            } else {
+                this.currentSong = this.chillHop()[index - 1]
+            }
+        }
     }
+    console.log(this.currentSong)
   };
 
   chillHop = () => {
@@ -29,7 +45,7 @@ class UserStore {
         artist: "Aso, Middle School, Aviino",
         audio: "https://mp3.chillhop.com/serve.php/?mp3=10075",
         color: ["#205950", "#2ab3bf"],
-        id: uuidv4(),
+        id: 1,
         active: true,
         },
         {
@@ -38,7 +54,7 @@ class UserStore {
         artist: "Aiguille",
         audio: "https://mp3.chillhop.com/serve.php/?mp3=9272",
         color: ["#EF8EA9", "#ab417f"],
-        id: uuidv4(),
+        id: 2,
         active: false,
         },
         {
@@ -47,7 +63,7 @@ class UserStore {
         artist: "Swørn",
         audio: "https://mp3.chillhop.com/serve.php/?mp3=9222",
         color: ["#CD607D", "#c94043"],
-        id: uuidv4(),
+        id: 3,
         active: false,
         },
         {
@@ -56,7 +72,7 @@ class UserStore {
         artist: "Aiguille",
         audio: "https://mp3.chillhop.com/serve.php/?mp3=9148",
         color: ["#EF8EA9", "#ab417f"],
-        id: uuidv4(),
+        id: 45,
         active: false,
         },
         {
@@ -65,7 +81,7 @@ class UserStore {
         artist: "Swørn",
         audio: "https://mp3.chillhop.com/serve.php/?mp3=9228",
         color: ["#CD607D", "#c94043"],
-        id: uuidv4(),
+        id: 7,
         active: false,
         },
         {
@@ -74,7 +90,7 @@ class UserStore {
         artist: "Aso, Middle School, Aviino",
         audio: "https://mp3.chillhop.com/serve.php/?mp3=10074",
         color: ["#205950", "#2ab3bf"],
-        id: uuidv4(),
+        id: 12,
         active: false,
         },
         //ADD MORE HERE
