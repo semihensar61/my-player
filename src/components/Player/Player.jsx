@@ -60,18 +60,18 @@ const Player = observer(() => {
     <div className="grid  lg:grid-cols-12 gap-6 mt-5">
           <div className='col-span-8 col-start-3 grid grid-cols-9 '>
               <div className='col-span-1'>
-                  <ReactSVG onClick={previous} src="/assets/chevron-l.svg" />
+                  <ReactSVG className='cursor-pointer' onClick={previous} src="/assets/chevron-l.svg" />
               </div>
               <div className='col-span-1 col-start-5 '>
-                  {paused ? <ReactSVG onClick={playSong} src="/assets/play.svg" /> : <ReactSVG onClick={pauseSong} src="/assets/pause.svg" />}
+                  {paused ? <ReactSVG className='cursor-pointer' onClick={playSong} src="/assets/play.svg" /> : <ReactSVG onClick={pauseSong} src="/assets/pause.svg" />}
               </div>
               <div className='col-span-1 col-start-9'>
-                  <ReactSVG onClick={next} src="/assets/chevron-r.svg" />
+                  <ReactSVG className='cursor-pointer' onClick={next} src="/assets/chevron-r.svg" />
               </div>
           </div>
       </div>
       <div className='flex flex-col text-center w-full mt-2'>
-        <ReactSVG onClick={shuffleFunc} className={classNames("w-10 self-center",{
+        <ReactSVG onClick={shuffleFunc} className={classNames("w-10 self-center cursor-pointer",{
             "text-success": !shuffle
         })} src='/assets/shuffle.svg' />
       </div></>
