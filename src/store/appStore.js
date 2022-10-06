@@ -16,7 +16,7 @@ class UserStore {
     if(!song) {
         this.currentSong = this.chillHop()[0]
     } else if (shuffle){
-        this.currentSong = this.chillHop()[Math.floor(Math.random() * this.chillHop().length-1)]
+        this.currentSong = this.chillHop()[Math.floor(Math.random() * this.chillHop().length-1) -1]
     } else {
         if(song === "next") {
             const index = this.chillHop().findIndex((song) => song.id === this.currentSong.id)
