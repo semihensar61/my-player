@@ -4,6 +4,8 @@ module.exports = {
   theme: {
       colors:{
         success: '#7ed321',
+        gray: '#B2BEB5',
+        blue: '#6082B6'
       },
       extend: {
       fontFamily: {

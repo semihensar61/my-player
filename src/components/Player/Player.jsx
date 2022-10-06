@@ -4,6 +4,7 @@ import AppStore from "../../store/appStore";
 import { ReactSVG } from 'react-svg'
 import { useRef, useState } from 'react';
 import classNames from 'classnames';
+import Bar from './bar';
 const Player = observer(() => {
 
     const [paused, setPaused] = useState(true)
@@ -31,10 +32,12 @@ const Player = observer(() => {
     }
 
   return (
-    <><div className="grid  lg:grid-cols-12 gap-6 ">
-          <div className='col-span-12 w-full flex flex-col text-center text-2xl font-bold'>
+    <>
+    <div className='col-span-12 w-full flex flex-col text-center text-2xl font-bold mb-5'>
               Player
-          </div>
+    </div>
+    <Bar></Bar>
+    <div className="grid  lg:grid-cols-12 gap-6 mt-5">
           <div className='col-span-8 col-start-3 grid grid-cols-9 '>
               <div className='col-span-1'>
                   <ReactSVG onClick={previous} src="/assets/chevron-l.svg" />
