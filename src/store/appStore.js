@@ -28,7 +28,6 @@ class UserStore {
         if(duration) this.songDuraiton.duration = duration
         this.songDuraiton.currentSec = this.songDuraiton.currentSec + 1
         this.songDuraiton.percentage = 100*this.songDuraiton.currentSec/duration
-        console.log(this.songDuraiton.currentSec, this.songDuraiton.percentage )
     }
   }
 

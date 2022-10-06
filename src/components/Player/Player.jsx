@@ -13,9 +13,7 @@ const Player = observer(() => {
 
     useEffect(() => {
         if(!paused) {
-            console.log("adsdsa")
             const interval = setInterval(() => {
-                console.log('Logs every sec');
                 AppStore.setSongDuration(false, duration)
             }, 1000);
 
