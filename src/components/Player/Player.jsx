@@ -11,6 +11,10 @@ const Player = observer(() => {
     const [shuffle, setShuffle] = useState(false)
     const [duration, setDuration] = useState()
 
+    const [audioStatus, changeAudioStatus] = useState(false);
+    const myRef = useRef();
+    let audio = new Audio(AppStore.currentSong.audio)
+
     useEffect(() => {
         if(!paused) {
             const interval = setInterval(() => {
@@ -22,22 +26,26 @@ const Player = observer(() => {
     },[paused])
 
 
-    let audio = new Audio(AppStore.currentSong.audio)
     const playSong = () => {
         setPaused(false)
-        audio.play();
+        myRef.current.play();
+
+        changeAudioStatus(true);
     }
     const pauseSong = () => {
         setPaused(true)
-        audio.pause();
+        myRef.current.pause();
+        changeAudioStatus(false);
     }
 
     const next =  () => {
+        pauseSong()
         AppStore.setCurrentSong("next", shuffle)
         AppStore.setSongDuration(true, duration)
     }
 
     const previous =  () => {
+        pauseSong()
         AppStore.setCurrentSong("previous", shuffle)
         AppStore.setSongDuration(true, duration)
     }
@@ -47,12 +55,15 @@ const Player = observer(() => {
     }
 
     audio.addEventListener('loadedmetadata', (e) => {
-        console.log(e.target.duration);
         setDuration(e.target.duration)
     });
 
   return (
     <>
+    <audio
+        ref={myRef}
+        src={AppStore.currentSong.audio}
+      />
     <div className='col-span-12 w-full flex flex-col text-center text-2xl font-bold mb-5'>
               Player
     </div>

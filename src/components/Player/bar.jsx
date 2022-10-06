@@ -1,7 +1,6 @@
 import { observer } from 'mobx-react';
 import AppStore from "../../store/appStore";
 const Bar = observer(() => {
-    console.log("dasdsa", AppStore.songDuraiton.percentage)
     const format = (duration) =>
     {   
         // Hours, minutes and seconds
