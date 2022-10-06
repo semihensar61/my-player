@@ -3,14 +3,34 @@ import { action, observable, makeObservable, toJS } from 'mobx';
 
 class UserStore {
   currentSong = {};
+  songDuraiton = {
+    duration: 0,
+    currentSec:0,
+    percentage:0,
+  }
 
 
   constructor() {
     makeObservable(this, {
       currentSong: observable,
+      songDuraiton: observable
     });
   }
 
+  setSongDuration = (change, duration) => {
+    if (change) {
+        this.songDuraiton = {
+            duration: duration,
+            currentSec:0,
+            percentage:0,
+        }
+    } else {
+        if(duration) this.songDuraiton.duration = duration
+        this.songDuraiton.currentSec = this.songDuraiton.currentSec + 1
+        this.songDuraiton.percentage = 100*this.songDuraiton.currentSec/duration
+        console.log(this.songDuraiton.currentSec, this.songDuraiton.percentage )
+    }
+  }
 
   setCurrentSong = (song, shuffle) => {
     if(!song) {
