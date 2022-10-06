@@ -69,7 +69,7 @@ const Player = observer(() => {
     </div>
     <Bar></Bar>
     <div className="grid  lg:grid-cols-12 gap-6 mt-5">
-          <div className='col-span-8 col-start-3 grid grid-cols-9 '>
+          <div className='col-span-8 col-start-1 lg:col-start-3 grid grid-cols-9 '>
               <div className='col-span-1'>
                   <ReactSVG className='cursor-pointer' onClick={previous} src="/assets/chevron-l.svg" />
               </div>
