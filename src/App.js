@@ -10,7 +10,7 @@ function App() {
     <div className='w-[20rem] h-full hidden lg:block lg:fixed left-0 top-0'>
       <SideBar></SideBar>
     </div><div className="ml-0 lg:ml-[15rem]">
-        <div className='mt-[18rem] lg:mt-[8rem]'>
+        <div className='mt-[2rem] lg:mt-[8rem]'>
           <TrackCard />
         </div>
         <div className='lg:mt-[6rem] '>

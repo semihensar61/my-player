@@ -65,7 +65,7 @@ const Player = observer(() => {
         src={AppStore.currentSong.audio}
       />
     <div className='col-span-12 w-full flex flex-col text-center text-2xl font-bold mb-5'>
-              Player
+        Player
     </div>
     <Bar></Bar>
     <div className="grid  lg:grid-cols-12 gap-6 mt-5">
