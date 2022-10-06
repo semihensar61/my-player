@@ -53,6 +53,7 @@ class UserStore {
             }
         } else {
             this.currentSong = song
+            this.setSongDuration(true)
         }
     }
     console.log(this.currentSong)
