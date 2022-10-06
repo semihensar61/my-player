@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import AppStore from "../../store/appStore";
 import { ReactSVG } from 'react-svg'
 import { useRef, useState } from 'react';
+import classNames from 'classnames';
 const Player = observer(() => {
 
     const [paused, setPaused] = useState(true)
@@ -47,7 +48,9 @@ const Player = observer(() => {
           </div>
       </div>
       <div className='flex flex-col text-center w-full mt-2'>
-        <ReactSVG onClick={shuffleFunc} className="w-10 self-center" src='/assets/shuffle.svg' />
+        <ReactSVG onClick={shuffleFunc} className={classNames("w-10 self-center",{
+            "text-success": !shuffle
+        })} src='/assets/shuffle.svg' />
       </div></>
   );
 })

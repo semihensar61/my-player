@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+      colors:{
+        success: '#7ed321',
+      },
       extend: {
       fontFamily: {
         sans: ['Source Sans Pro'],
