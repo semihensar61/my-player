@@ -25,7 +25,7 @@ const Bar = observer(() => {
             {format(AppStore.songDuraiton.currentSec)}
         </div>
         <div className="w-[70%] bg-gray rounded-full h-2.5 dark:bg-gray-700 h-2.5 ">
-            <div className={`bg-blue h-2.5 rounded-full w-[45%]`}></div>
+            <div className={`bg-blue h-2.5 rounded-full `} style={{ width: `${AppStore.songDuraiton.currentSec}%`}}></div>
         </div>
         <div className='ml-2'>
             {format(AppStore.songDuraiton.duration)}
