@@ -44,13 +44,15 @@ class UserStore {
             } else {
                 this.currentSong = this.chillHop()[index+1]
             }
-        } else {
+        } else if(song === "previous"){
             const index = this.chillHop().findIndex((song) => song.id === this.currentSong.id)
             if(index === 0) {
                  this.currentSong = this.chillHop()[this.chillHop().length-1]
             } else {
                 this.currentSong = this.chillHop()[index - 1]
             }
+        } else {
+            this.currentSong = song
         }
     }
     console.log(this.currentSong)

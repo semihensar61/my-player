@@ -4,8 +4,12 @@ import { useState } from 'react';
 import AppStore from "../../store/appStore";
 const TrackCard = observer(({song}) => {
 
+  const changeSong = () => {
+    AppStore.setCurrentSong(song)
+  }
+
   return (
-    <div className={classNames(" flex flex-row mt-2 curser-pointer", {
+    <div onClick={changeSong} className={classNames(" flex flex-row mt-2 cursor-pointer", {
         "bg-gray": song.id === AppStore.currentSong.id
     })}>
         <img className='w-[6rem] h-[6rem] ml-2 ' src={song.cover} alt="cover"/>
